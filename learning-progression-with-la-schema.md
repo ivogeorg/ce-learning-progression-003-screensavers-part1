@@ -465,9 +465,9 @@ basic.forever(function () {
 [[toc](#table-of-contents)]
    
 In the [programs](programs) directory:
-1. Add your program from 3.2.1 with filename `microbit-program-2-2-1.js`.  
-2. Add your program from 3.2.2 with filename `microbit-program-2-2-2.js`.  
-3. Add your program from 3.2.3 with filename `microbit-program-2-2-3.js`.  
+1. Add your program from 3.2.1 with filename `microbit-program-3-2-1.js`.  
+2. Add your program from 3.2.2 with filename `microbit-program-3-2-2.js`.  
+3. Add your program from 3.2.3 with filename `microbit-program-3-2-3.js`.  
 
 In the [Lab Notebook](README.md):
 1. Link to the program from 3.2.1.  
@@ -502,7 +502,38 @@ In the [Lab Notebook](README.md):
 #### 2. Apply
 [[toc](#table-of-contents)]
 
+1. `[<lernact-prac>]`Write a program with two modes, `Working` and `Asleep`. Requirements:
+   1. A global variable `mode` of time `Mode` holds he latest gesture detected.  
+   2. Mode `Working` is default.  
+   3. In mode `Working`, display the single character `W`.  
+   4. In mode `Asleep`, display the single character `Z`.  
+   5. Button `A` sets the mode to `Asleep`.  
+   6. Button `B` sets the mode to `Asleep`. 
+
+2. `[<lernact-prac>]`Write a program which recognizes two gestures, `TiltLeft` and `TiltRight`. Requirements:
+   1. A global variable `gesture` of type `Gesture` holds he latest gesture detected.  
+   2. Gesture `TiltLeft` is default.  
+   3. When gesture `TiltLeft` is detected, display the single character `L`.  
+   4. When gesture `TiltRight` is detected, display the single character `R`.  
+   
+3. `[<lernact-prac>]`Combine the two programs. Requirements:
+   1. In `Working` mode, keep calling `coding()`.  
+   2. In `Asleep` mode, keep calling the screensaver function which corresponds to the last gesture detected, or the default.  
+      1. `rain()` for `TiltLeft`.  
+      2. `freqBars()` for `TiltRight`.  
 
 #### 3. Present
 [[toc](#table-of-contents)]
    
+In the [programs](programs) directory:
+1. Add your program from 4.2.1 with filename `microbit-program-4-2-1.js`.  
+2. Add your program from 4.2.2 with filename `microbit-program-4-2-2.js`.  
+3. Add your program from 4.2.3 with filename `microbit-program-4-2-3.js`.  
+
+In the [Lab Notebook](README.md):
+1. Link to the program from 4.2.1.  
+2. Link to a demo video showing the execution of the program from 4.2.1.  
+3. Link to the program from 4.2.2.  
+4. Link to a demo video showing the execution of the program from 4.2.2.  
+5. Link to the program from 4.2.3.  
+6. Link to a demo video showing the execution of the program from 4.2.3.  
