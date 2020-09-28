@@ -323,17 +323,56 @@ In the [Lab Notebook](README.md):
 
 ##### Overview
 
+`[<lernact-rd>]`This progression has a significant target program as an end goal. This allows us to visit programming topics that would otherwise not arise in a sequence of small few-line example programs. Some of these topics concern programming as a process (e.g. program decomposition, encapsulation, program structure), others have to do with computer resources (e.g. efficient coding, achieving desired behavior within the memory and processor speed limitations of the target device), and still others address user interface design (e.g. responsiveness, intuitive dynamics). The details of the implementation of the computer's software stack may bear directly on any of these topics. Exploring these is the point of this progression, and thus it is the culmination of the first part of the course, in which we only program the bear micro:bit, without any external circuitry.
+
+The target program consists of several smaller sub-programs, which jointly simpulate a computer, on which a programmer codes, and on which various screensavers display when the computer is "asleep". See this overview [video of the overall program operation](https://msudenver.yuja.com/Dashboard/Permalink?authCode=1778867948&b=1761370&linkType=video), including the coding simulation in work mode and two sceensavers, one simulating rain and the other a frequency bar.
+
 ##### Code writing
+
+Here is a longer [video of the code-writing simulation](https://msudenver.yuja.com/Dashboard/Permalink?authCode=5150693&b=1799587&linkType=video). Notice the scrolling after the first page is exhausted.
 
 ##### Rain
 
+Here is a longer [video of the rain simulation screensaver](https://msudenver.yuja.com/Dashboard/Permalink?authCode=1875257468&b=1799524&linkType=video). Notice how the "farther" (dimmer) raindrops, which look like they are falling in the background, are falling _faster_. Similarly, the ones at the forefront, are brightest and fall slowest. This is what you would see if you are looking at rain.
+
 ##### Frequency bar
+
+Here is a longer [video of the frequency bar simulation screensaver](https://msudenver.yuja.com/Dashboard/Permalink?authCode=45885861&b=1799554&linkType=video). Notice how the highest point to which a frequency column rises in a single beat lingers lit up until the column fades down completely. This is common behavior of frequency bars, in which the overall frequency envelope of the music signal is displayed.
      
 #### 2. Apply
 [[toc](#table-of-contents)]
 
+1. `[<lernact-prac>]`Write a standalone program to simulate the code writing sub-program. Guidelines and hints:
+   1. First, write a program that can draw 5 "program lines" of different lengths, from left to right.  
+   2. Notice that at all times, there are _at most_ 5 lines on the screen. Does that perhaps suggest an array of line lengths? How would you add and remove lines to keep it at most 5-element long?  
+   3. Finally, notice that while writing the "first page" of the program, there is no scrolling until the fifth line is reached. How would you modify your program to achieve this?  
+   
+2. `[<lernact-prac>]`Write a standalone program to simulate rain for one of the screensavers. Guidelines and hints:
+   1. First, write a program to have LED "raindrops" fall from top to bottom, and disappear at the bottom of the screen.  
+   2. Now make them vary in brightness.  
+   3. Now think how you can have some of the go faster than others, and match that with the brightness. _You don't have to get this right in this step, but it will help to think about it and generate some ideas._
+   
+3. `[<lernact-prac>]`Write a standalone program to simulate a frequency bar for one of the screensavers. Guidelines and hints:
+   1. First, write a program that can plot LED columns _from botton to top_ and back.  
+   2. Randomize the height the way you randomized the line length in the code-writing simulation, and make the highest point show at highest brightness.  
+   3. How would you make the column retreat down while the highest point stays until the columns is gone, and only then turns off?  
+
 #### 3. Present
 [[toc](#table-of-contents)]
+
+In the [programs](programs) directory:
+1. Add your program from 2.2.1 with filename `microbit-program-2-2-1.js`.  
+2. Add your program from 2.2.2 with filename `microbit-program-2-2-2.js`.  
+3. Add your program from 2.2.3 with filename `microbit-program-2-2-3.js`.  
+
+In the [Lab Notebook](README.md):
+1. Link to the program from 2.2.1.  
+2. Link to a demo video showing the execution of the program from 2.2.1.  
+3. Link to the program from 2.2.2.  
+4. Link to a demo video showing the execution of the program from 2.2.2.  
+5. Link to the program from 2.2.3.  
+6. Link to a demo video showing the execution of the program from 2.2.3.  
+
 
 ### 3. Program structure  
 [[toc](#table-of-contents)]
