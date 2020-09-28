@@ -54,7 +54,7 @@ This progression is the culmination of the first part of the course, in which we
 ##### Arrays
 [[toc](#table-of-contents)]
 
-`[<lernact-rd>]`We have already seen how versatile and powerful arrays can be in a program, allowing us to achieve complex program behavior far more easily than if arrays weren't available to the programming language. Let's quickly review what arrays are. An `[<cept>]`_array_ is an _ordered sequence_ of elements _of the same type_. Because it holds more than one piece of data, it is also called a `[<cept>]`[_data structure_](https://en.wikipedia.org/wiki/Data_structure). Like any other variable and function, an array has a _name_. This name can be used to refer not only to the whole array, but to individual elements of the array. Because they are ordered, they can be referenced by `[<cept>]`_index_, that is, by their place in the order, using the `[<cept>]`_selection operator_ `[]` (opening and closing square bracket). Let's take a look:
+We have already seen how versatile and powerful arrays can be in a program, allowing us to achieve complex program behavior far more easily than if arrays weren't available to the programming language. Let's quickly review what arrays are. An _array_ is an _ordered sequence_ of elements _of the same type_. Because it holds more than one piece of data, it is also called a [_data structure_](https://en.wikipedia.org/wiki/Data_structure). Like any other variable and function, an array has a _name_. This name can be used to refer not only to the whole array, but to individual elements of the array. Because they are ordered, they can be referenced by _index_, that is, by their place in the order, using the _selection operator_ `[]` (opening and closing square bracket). Let's take a look:
 ```javascript
 // Example 1.1.1
 
@@ -71,14 +71,14 @@ for (let i = 0; i < firstPrimes.length; i ++) {
 }
 ```
 As we can see, the `[]` operator is used heavily with arrays. In fact, that's how you can spot array variables in a program even if you are not looking at the array declaration. Let's enumerate its uses:
-1. In `let firstPrimes...`, it indicates an array data type by attaching to the right of the `[<cept>]`_base type_. We are declaring an array of numbers, so the base time is `number`, and the type of the array variable `firstPrimes` is `number[]`. The single pair of brackets `[]` also indicates that this is `[<cept>]`_unidimensional_ array.  
+1. In `let firstPrimes...`, it indicates an array data type by attaching to the right of the _base type_. We are declaring an array of numbers, so the base time is `number`, and the type of the array variable `firstPrimes` is `number[]`. The single pair of brackets `[]` also indicates that this is _unidimensional_ array.  
 2. In `let favoritePrime...`, it selects a particular element of the array, in this case the one with index 3, making it the forth element. Note that the array index always starts at 0.  
-3. In `firstPrimes[i]`, it picks out the element, the index of which is equal to the current value of the loop variable `i`. So, the `[]` operator admits `[<cept>]`_expressions_ between the brackets, as long as they evaluate to an `[<cept>]`_integer_ value. That is, the result of evaluating the expression has to be a whole number. In addition, the integer has to be in the index `[<cept>]`_range_ of the array. That is, the number between the brackets has to be among the valid indices of the array. In our case, the range is [0, 9].  
+3. In `firstPrimes[i]`, it picks out the element, the index of which is equal to the current value of the loop variable `i`. So, the `[]` operator admits _expressions_ between the brackets, as long as they evaluate to an _integer_ value. That is, the result of evaluating the expression has to be a whole number. In addition, the integer has to be in the index _range_ of the array. That is, the number between the brackets has to be among the valid indices of the array. In our case, the range is [0, 9].  
 
 ##### Array methods
 [[toc](#table-of-contents)]
 
-`[<lernact-rd>]`The usefulness of the arrays doesn't stop with the ability to keep a collection of data together. Arrays come with many useful `[<cept>]`_methods_ and `[<cept>]`_properties_ for manipulating the elements of the collection or the whole collection itself. In Example 1.1.1, we already encountered the `length` property. The best way to explore methods in MakeCode is to declare an array variable, invoke the dropdown by using the `.` selection operator to pick a method or property, 
+The usefulness of the arrays doesn't stop with the ability to keep a collection of data together. Arrays come with many useful _methods_ and _properties_ for manipulating the elements of the collection or the whole collection itself. In Example 1.1.1, we already encountered the `length` property. The best way to explore methods in MakeCode is to declare an array variable, invoke the dropdown by using the `.` selection operator to pick a method or property, 
 
 <img src="images/method-dropdown.png" alt="MakeCode editor method dropdown" width="400"/>  
 
@@ -86,7 +86,7 @@ and then hover over the name to invoke the documentation popup.
 
 <img src="images/doc-popup.png" alt="MakeCode editor method dropdown" width="400"/>  
 
-Before we review the array methods, we need to point out what the difference is between methods and properties. Looking back at the material on classes in the previous learning progression, we can see that the array methods look like class methods and the `length` property as a `[<cept>]`_class field_, that is, a data point. The actual implementation is a bit more complicated, due to the need for MakeCode to support devices other than the micro:bit, but from our purposes, we can think of these methods and property as defined in the class `Array`. _Methods_ are called like functions, with parentheses `()`, as in `arr.reverse()`, while _properties_ are called like data fields, without parentheses, as in `arr.length`.
+Before we review the array methods, we need to point out what the difference is between methods and properties. Looking back at the material on classes in the previous learning progression, we can see that the array methods look like class methods and the `length` property as a _class field_, that is, a data point. The actual implementation is a bit more complicated, due to the need for MakeCode to support devices other than the micro:bit, but from our purposes, we can think of these methods and property as defined in the class `Array`. _Methods_ are called like functions, with parentheses `()`, as in `arr.reverse()`, while _properties_ are called like data fields, without parentheses, as in `arr.length`.
 
 Use the following functions to look at the contents of arrays in the next examples:
 ```javascript
@@ -161,7 +161,7 @@ Now, let's look at the available methods systematically, grouping them by genera
    ```
 3. Order methods, which change the order of the elements:
    - `reverse()` permanently reverses the order of the elements of the array on which it was called.  
-   - `sort()` returns the array sorted `[<cept>]`_in place_, meaning the array remains sorted after the call. `reverse()` is also in-place.    
+   - `sort()` returns the array sorted _in place_, meaning the array remains sorted after the call. `reverse()` is also in-place.    
    ```javascript
    // Example 1.1.5
    
@@ -180,7 +180,7 @@ Now, let's look at the available methods systematically, grouping them by genera
    showNumericArray(b)
    ```
 5. String-specific methods:
-   - `join()`, for `string` arrays, concatenates the elements, delimited by a `[<cept>]`_separator_.  
+   - `join()`, for `string` arrays, concatenates the elements, delimited by a _separator_.  
    ```javascript
    // Example 1.1.7
 
@@ -206,7 +206,7 @@ Now, let's look at the available methods systematically, grouping them by genera
    else
       basic.showString("Even and odd!")
    ```
-7. General methods applying a `[<cept>]` callback function on every element. (Notice that `find()`, `every()`, and `some()` also take callbacks as arguments, but they have very specific function.)
+7. General methods applying a  callback function on every element. (Notice that `find()`, `every()`, and `some()` also take callbacks as arguments, but they have very specific function.)
    - `map()` applies a callback function to each element of an array and returns the resulting array. The original array is not modified.  
    - `forEach()` applies a callback function to each element of an array.  The original array is not modified.  
    - `reduce()` applies a callback function to each element, while aggregating the result.  
@@ -252,7 +252,7 @@ Now, let's look at the available methods systematically, grouping them by genera
 ##### Multi-dimensional arrays
 [[toc](#table-of-contents)]
 
-`[<lernact-rd>]`Multi-dimensional arrays are _arrays of arrays_. In other words, the base type of multi-dimensional array is also a (multi-dimensional) array. The number of dimensions is indicated by the number of `[]` pairs after the base type of the innermost array, as in `let threeDimensionalGrid : number[][][]`. The indexing of elements works by level, from the outermost to the innermost, as in `threeDimensionalGrid[5][4][10]` references the value of _the element of index 10 of the element of index 4 of the element of index 5_. This is a lot easier to understand with an example:
+Multi-dimensional arrays are _arrays of arrays_. In other words, the base type of multi-dimensional array is also a (multi-dimensional) array. The number of dimensions is indicated by the number of `[]` pairs after the base type of the innermost array, as in `let threeDimensionalGrid : number[][][]`. The indexing of elements works by level, from the outermost to the innermost, as in `threeDimensionalGrid[5][4][10]` references the value of _the element of index 10 of the element of index 4 of the element of index 5_. This is a lot easier to understand with an example:
 ```javascript
 // Example 1.1.10
 
@@ -307,9 +307,9 @@ Things to notice here:
 #### 2. Apply  
 [[toc](#table-of-contents)]
 
-1. `[<lernact-prac>]`Create an array of the numbers 1 to 100, inclusive. Do not waste your time typing the numbers. Write a loop and use the appropriate array method to add elements. In a separate loop, display the last 17 numbers.  
-2. `[<lernact-prac>]`Using the method of the [Sieve of Eratosthenes](https://www.smartickmethod.com/blog/math/operations-and-algebraic-thinking/divisibility/prime-numbers-sieve-eratosthenes/), update your program from 1.2.1 to go through the array and leave only the prime numbers. Show the remaining numbers in a loop.  
-3. `[<lernact-prac>]`Modify the program from Example 1.1.10 so that the snake appears from the center, goes to the top left corner and returns back.
+1. Create an array of the numbers 1 to 100, inclusive. Do not waste your time typing the numbers. Write a loop and use the appropriate array method to add elements. In a separate loop, display the last 17 numbers.  
+2. Using the method of the [Sieve of Eratosthenes](https://www.smartickmethod.com/blog/math/operations-and-algebraic-thinking/divisibility/prime-numbers-sieve-eratosthenes/), update your program from 1.2.1 to go through the array and leave only the prime numbers. Show the remaining numbers in a loop.  
+3. Modify the program from Example 1.1.10 so that the snake appears from the center, goes to the top left corner and returns back.
 
 #### 3. Present  
 [[toc](#table-of-contents)]
@@ -336,7 +336,7 @@ In the [Lab Notebook](README.md):
 
 ##### Overview
 
-`[<lernact-rd>]`This progression has a significant target program as an end goal. This allows us to visit programming topics that would otherwise not arise in a sequence of small few-line example programs. Some of these topics concern programming as a process (e.g. program decomposition, encapsulation, program structure), others have to do with computer resources (e.g. efficient coding, achieving desired behavior within the memory and processor speed limitations of the target device), and still others address user interface design (e.g. responsiveness, intuitive dynamics). The details of the implementation of the computer's software stack may bear directly on any of these topics. Exploring these is the point of this progression, and thus it is the culmination of the first part of the course, in which we only program the bear micro:bit, without any external circuitry.
+This progression has a significant target program as an end goal. This allows us to visit programming topics that would otherwise not arise in a sequence of small few-line example programs. Some of these topics concern programming as a process (e.g. program decomposition, encapsulation, program structure), others have to do with computer resources (e.g. efficient coding, achieving desired behavior within the memory and processor speed limitations of the target device), and still others address user interface design (e.g. responsiveness, intuitive dynamics). The details of the implementation of the computer's software stack may bear directly on any of these topics. Exploring these is the point of this progression, and thus it is the culmination of the first part of the course, in which we only program the bear micro:bit, without any external circuitry.
 
 The target program consists of several smaller sub-programs, which jointly simpulate a computer, on which a programmer codes, and on which various screensavers display when the computer is "asleep". See this overview [video of the overall program operation](https://msudenver.yuja.com/Dashboard/Permalink?authCode=1778867948&b=1761370&linkType=video), including the coding simulation in work mode and two sceensavers, one simulating rain and the other a frequency bar.
 
@@ -355,17 +355,17 @@ Here is a longer [video of the frequency bar simulation screensaver](https://msu
 #### 2. Apply
 [[toc](#table-of-contents)]
 
-1. `[<lernact-prac>]`Write a standalone program to simulate the code writing sub-program. Guidelines and hints:
+1. Write a standalone program to simulate the code writing sub-program. Guidelines and hints:
    1. First, write a program that can draw 5 "program lines" of different lengths, from left to right.  
    2. Notice that at all times, there are _at most_ 5 lines on the screen. Does that perhaps suggest an array of line lengths? How would you add and remove lines to keep it at most 5-element long?  
    3. Finally, notice that while writing the "first page" of the program, there is no scrolling until the fifth line is reached. How would you modify your program to achieve this?  
    
-2. `[<lernact-prac>]`Write a standalone program to simulate rain for one of the screensavers. Guidelines and hints:
+2. Write a standalone program to simulate rain for one of the screensavers. Guidelines and hints:
    1. First, write a program to have LED "raindrops" fall from top to bottom, and disappear at the bottom of the screen.  
    2. Now make them vary in brightness.  
    3. Now think how you can have some of the go faster than others, and match that with the brightness. _You don't have to get this right in this step, but it will help to think about it and generate some ideas._
    
-3. `[<lernact-prac>]`Write a standalone program to simulate a frequency bar for one of the screensavers. Guidelines and hints:
+3. Write a standalone program to simulate a frequency bar for one of the screensavers. Guidelines and hints:
    1. First, write a program that can plot LED columns _from botton to top_ and back. _Note the vertical coordinate grows from top to bottom, so you will need to invert it._    
    2. Randomize the height the way you randomized the line length in the code-writing simulation, and make the highest point show at highest brightness. _Can you see another application of an array of highest point vertial coordinates?_    
    3. How would you make the column retreat down while the highest point stays until the columns is gone, and only then turns off?  
@@ -395,7 +395,7 @@ In the [Lab Notebook](README.md):
 
 ##### Overall program structure
 
-`[<lernact-rd>]`In a large program, proper structure is essential. While the particular structure is somewhat arbitrary, general guidelines and conventions are quick to appear in any programming domain. One important factor in coming up with a good structure for a large program is whether the program can contain multiple files or just a single one. The MakeCode micro:bit environment allows for only one user-defined source file at a time, with all the rest of the functionality (language runtime, device runtime, MakeCode and user-defined packages) all come precompiled and are not modifiable from inside the user program. For our single-file micro:bit programs, the following structure has emerged:
+In a large program, proper structure is essential. While the particular structure is somewhat arbitrary, general guidelines and conventions are quick to appear in any programming domain. One important factor in coming up with a good structure for a large program is whether the program can contain multiple files or just a single one. The MakeCode micro:bit environment allows for only one user-defined source file at a time, with all the rest of the functionality (language runtime, device runtime, MakeCode and user-defined packages) all come precompiled and are not modifiable from inside the user program. For our single-file micro:bit programs, the following structure has emerged:
 
 ```
  _____ _       _           _                   _       _     _            
@@ -449,19 +449,19 @@ In the rest of the sections, we'll briefly explain each of these program regions
 
 ##### Global variables
 
-Global variables are variables that are in the top-level scope of the program, and are thus visible to all the program's components, including functions and classes. They are the main _program data_ (aka `[<cept>]`_program state_). In general, there should be a minimal number of global variables, thought the single-file environment mitigates most of the risks. Nevertheless, it makes good sense to put the at the very top of the program. This makes them easy to find, helps avoid duplication, and gives a brief overview of the program to a new reader. In Example 3.1.1, our global variable, against which all program operations are performed, is the `balls` array.
+Global variables are variables that are in the top-level scope of the program, and are thus visible to all the program's components, including functions and classes. They are the main _program data_ (aka _program state_). In general, there should be a minimal number of global variables, thought the single-file environment mitigates most of the risks. Nevertheless, it makes good sense to put the at the very top of the program. This makes them easy to find, helps avoid duplication, and gives a brief overview of the program to a new reader. In Example 3.1.1, our global variable, against which all program operations are performed, is the `balls` array.
 
 ##### Function and class declarations
 
-Functions and classes are _named_ encapsulation structures, which help modularize the program code and prevent duplication of code. Functions have input and output, and can have local data needed for their operation. Functions are `[<cept>]`_called_ by invoking their name and specifying the necessary arguments, if any, between parentheses. While not all functions have `[<cept>]`_parameters_ (meaning the declarations of the `[<cept>]`_arguments_), a function call **requires** the parentheses `()`. In Example 3.1.1, we have two functions, `createBalls()` and `bounceBalls()`. Note that they have distinct functionality, properly communicated by their names.
+Functions and classes are _named_ encapsulation structures, which help modularize the program code and prevent duplication of code. Functions have input and output, and can have local data needed for their operation. Functions are _called_ by invoking their name and specifying the necessary arguments, if any, between parentheses. While not all functions have _parameters_ (meaning the declarations of the _arguments_), a function call **requires** the parentheses `()`. In Example 3.1.1, we have two functions, `createBalls()` and `bounceBalls()`. Note that they have distinct functionality, properly communicated by their names.
 
-Classes are the backbone of the object-oriented programming paradigm, allowing programmers to define their own types, known as `[<cept>]`_user-defined types_, by encapsulating complex data and determiniting the exact set of computational operations that can be performed on them. Classes are thus the templates for the creation of user-type entities, called `[<cept>]`_objects_.
+Classes are the backbone of the object-oriented programming paradigm, allowing programmers to define their own types, known as _user-defined types_, by encapsulating complex data and determiniting the exact set of computational operations that can be performed on them. Classes are thus the templates for the creation of user-type entities, called _objects_.
 
-Keeping functions and classes clustered together follows the `[<cept>]`_library_ (aka `[<cept>]`_application programming interface (API)_) paradigm, in which all the functions and user data types available to the programmer are presented in an exhaustive and descriptive list.
+Keeping functions and classes clustered together follows the _library_ (aka _application programming interface (API)_) paradigm, in which all the functions and user data types available to the programmer are presented in an exhaustive and descriptive list.
 
 ##### Event handler registrants
 
-Events are phenomena, internal or external to the computer's processor, that the processor has to be informed of. There are two ways to communicate events to the processor: `[<cept>]`_interrupts_, which are signals sent by the event originator to the processor and which the processor inteprets and acts on, and `[<cept>]`_polling_, which is a process of cyclic interrogation of the possible originators by the processor. The micro:bit actually uses a hybrid method, where on the hardware level interrupts are used, but the device and language runtimes actually implement polling. The MakeCode packages which are involved in, among other thigns, various event detection and response are `input`, `pins`, `radio`, `conrol`, and `serial`. The way the processor and/or runtime responds to an event is by assigning an `[<cept>]`_event-handler_ function to each event. In MakeCode, this is done by event-handler `[<cept>]`_registrants_, which are themselves functions, which take the event-handler functions as one of their arguments. In Example 3.1.1, we have a `Gesture` event-handler registrant, called `input.onGesture`. It takes two arguments: the name of the gesture, in this case `Shake`, and the event-handler to be executed upon detection of the shake-gesture event, namely `function () { balls = createBalls(); }`.
+Events are phenomena, internal or external to the computer's processor, that the processor has to be informed of. There are two ways to communicate events to the processor: _interrupts_, which are signals sent by the event originator to the processor and which the processor inteprets and acts on, and _polling_, which is a process of cyclic interrogation of the possible originators by the processor. The micro:bit actually uses a hybrid method, where on the hardware level interrupts are used, but the device and language runtimes actually implement polling. The MakeCode packages which are involved in, among other thigns, various event detection and response are `input`, `pins`, `radio`, `conrol`, and `serial`. The way the processor and/or runtime responds to an event is by assigning an _event-handler_ function to each event. In MakeCode, this is done by event-handler _registrants_, which are themselves functions, which take the event-handler functions as one of their arguments. In Example 3.1.1, we have a `Gesture` event-handler registrant, called `input.onGesture`. It takes two arguments: the name of the gesture, in this case `Shake`, and the event-handler to be executed upon detection of the shake-gesture event, namely `function () { balls = createBalls(); }`.
 
 Due to the way they are executed, event handlers should not be put inside loops, functions, or classes, but at the top level of the program, and clustered together so that it is easy to see at a glance what events the program is listening to. More on this in a later step.
 
@@ -543,16 +543,16 @@ basic.forever(function () {
 #### 2. Apply
 [[toc](#table-of-contents)]
 
-1. `[<lernact-prac>]`Rewrite your program from 2.2.1 to follow the structure presented in this step. Requirements:
+1. Rewrite your program from 2.2.1 to follow the structure presented in this step. Requirements:
    1. The code for the coding simulation should be encapsulated in a funciton, called `coding`.  
    2. The `basic.forever` loop should only call `coding()` and nothing else.  
    
-2. `[<lernact-prac>]`Rewrite your program from 2.2.2 to follow the structure presented in this step. Requirements:
+2. Rewrite your program from 2.2.2 to follow the structure presented in this step. Requirements:
    1. The functionality for a raindrop should be encapsulated in a class, called `Raindrop`. You may or may not subclass from `game.LedSprite`, as you wish. Refer to LP002-[9-11] for an example.  
    2. The actual rain should be encapsulated in a function, called `rain`.  
    3. The `basic.forever` loop should only call `rain()` and nothing else.  
    
-3. `[<lernact-prac>]`Rewrite your program from 2.2.3 to follow the structure presented in this step. Requirements:  
+3. Rewrite your program from 2.2.3 to follow the structure presented in this step. Requirements:  
    1. The code for the coding simulation should be encapsulated in a funciton, called `freqBars`.  
    2. The `basic.forever` loop should only call `freqBars()` and nothing else.  
 
@@ -582,9 +582,9 @@ In the [Lab Notebook](README.md):
 
 ##### Two modes: working & asleep
 
-`[<lernact-rd>]`It is good to create a development plan for a program that is expected to be large. The most powerful technique is `[<cept>]`_decomposition_, the breaking up of a large task into smaller pieces, each one of them as independent from the others as possible. In a previous Step, we saw some sub-programs of the large target program, namely the `coding()`, `rain()`, and `freqBars()` functions, each encapsulating an independent simulation. So, we have actually already made steps toward decomposing the large program, specifically by taking a `[<cept>]`_bottom-up_ approach, in which we first build the small consituent pieces, which we will put together later. 
+It is good to create a development plan for a program that is expected to be large. The most powerful technique is _decomposition_, the breaking up of a large task into smaller pieces, each one of them as independent from the others as possible. In a previous Step, we saw some sub-programs of the large target program, namely the `coding()`, `rain()`, and `freqBars()` functions, each encapsulating an independent simulation. So, we have actually already made steps toward decomposing the large program, specifically by taking a _bottom-up_ approach, in which we first build the small consituent pieces, which we will put together later. 
 
-From the opposite direction, in what we can call `[<cept>]`_top-down_ approach, the high-level structure of the program is that it has _two mutually exclusive modes_, "working" and "asleep", which have no program behavior in common. Such a case is ideal for a small `enum` class, which creates a type of _named_ elements, as in the following example:
+From the opposite direction, in what we can call _top-down_ approach, the high-level structure of the program is that it has _two mutually exclusive modes_, "working" and "asleep", which have no program behavior in common. Such a case is ideal for a small `enum` class, which creates a type of _named_ elements, as in the following example:
 ```javascript
 // Example 4.1.1
 
@@ -600,11 +600,11 @@ In mode `Working`, we call the `coding()` sub-program, while in mode `Asleep`, w
 
 The most important aspects of the sub-programs `coding()`, `rain()`, and `freqBars()` is that they are _independent of each other_ and are _similarly encapsulated_. Towards the first aspect, only one of these programs is running at a time, and no other program is running _in the background_ to compete for computing resources or perturb the timing of the program currently executing. Toward the second aspect, all of these sub-programs are encapsulated as functions with the same signature, namely no parameters and no return type, as in `function foo() : void {}`. This makes them easy to call from the same place, in our case the `basic.forever()` loop.
 
-We have only looked at 2 screensavers (meaning the programs running in `Asleep` mode) so far, but now that we have a solid program structure, both bottom-up and top-down, we can easily go about developing and adding other screensavers. Just wrap them into a `void` function with no parameters, whether the internal implementation is a function or a class, and add it to the options for the `Asleep` mode. We see two important properties of well-structured programs: `[<cept>]`_implementation hiding_, which dictates that the implementation details for a certain independent program component need not be visible (in other words, at the top level of the program, we don't care about how a particular screensaver sub-programs is implemented), and `[<cept>]`_extensibility_, which allows for seamless extension of the functionality of the large program by just adding more options, without changing the overall design and structure.
+We have only looked at 2 screensavers (meaning the programs running in `Asleep` mode) so far, but now that we have a solid program structure, both bottom-up and top-down, we can easily go about developing and adding other screensavers. Just wrap them into a `void` function with no parameters, whether the internal implementation is a function or a class, and add it to the options for the `Asleep` mode. We see two important properties of well-structured programs: _implementation hiding_, which dictates that the implementation details for a certain independent program component need not be visible (in other words, at the top level of the program, we don't care about how a particular screensaver sub-programs is implemented), and _extensibility_, which allows for seamless extension of the functionality of the large program by just adding more options, without changing the overall design and structure.
 
 ##### Matching gestures and screensavers
 
-Here, we will also see how the encapsulation, implementation hiding, and extensibility of our structured program design will help us with keeping the main program simple. In particular, how do we match gestures and screensaver programs? Do we use `if...else` cascades, a `switch` statement, or some other construct. Actually, we will use the marvelous property of JavaScript (and, hence TypeScript) that it has `[<cept>]`_first-class functions_. Let's look at an example:
+Here, we will also see how the encapsulation, implementation hiding, and extensibility of our structured program design will help us with keeping the main program simple. In particular, how do we match gestures and screensaver programs? Do we use `if...else` cascades, a `switch` statement, or some other construct. Actually, we will use the marvelous property of JavaScript (and, hence TypeScript) that it has _first-class functions_. Let's look at an example:
 ```javascript
 // Example 4.1.2
 
@@ -628,7 +628,7 @@ Let's unpack this:
 #### 2. Apply
 [[toc](#table-of-contents)]
 
-1. `[<lernact-prac>]`Write a program with two modes, `Working` and `Asleep`. Requirements:
+1. Write a program with two modes, `Working` and `Asleep`. Requirements:
    1. A global variable `mode` of time `Mode` holds he latest gesture detected.  
    2. Mode `Working` is default.  
    3. In mode `Working`, display the single character `W`.  
@@ -636,13 +636,13 @@ Let's unpack this:
    5. Button `A` sets the mode to `Asleep`.  
    6. Button `B` sets the mode to `Asleep`. 
 
-2. `[<lernact-prac>]`Write a program which recognizes two gestures, `TiltLeft` and `TiltRight`. Requirements:
+2. Write a program which recognizes two gestures, `TiltLeft` and `TiltRight`. Requirements:
    1. A global variable `gesture` of type `Gesture` holds he latest gesture detected.  
    2. Gesture `TiltLeft` is default.  
    3. When gesture `TiltLeft` is detected, display the single character `L`.  
    4. When gesture `TiltRight` is detected, display the single character `R`.  
    
-3. `[<lernact-prac>]`Combine the two programs. Requirements:
+3. Combine the two programs. Requirements:
    1. In `Working` mode, keep calling `coding()`.  
    2. In `Asleep` mode, keep calling the screensaver function which corresponds to the last gesture detected, or the default.  
       1. `rain()` for `TiltLeft`.  
