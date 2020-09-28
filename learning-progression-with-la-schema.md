@@ -2,6 +2,43 @@
 
 This is learning progression 003 for the Fall 2020 installment of the course CPE 1040: Introduction to Computer Engineering at MSU Denver.
 
+Table of Contents
+=================
+
+* [CPE 1040 \- Fall 2020](#cpe-1040---fall-2020)
+  * [Learning Progression 003: Screensavers (Part 1)](#learning-progression-003-screensavers-part-1)
+    * [1\. Arrays revisited](#1-arrays-revisited)
+      * [1\. Study](#1-study)
+        * [Arrays](#arrays)
+        * [Array methods](#array-methods)
+        * [Multi\-dimensional arrays](#multi-dimensional-arrays)
+      * [2\. Apply](#2-apply)
+      * [3\. Present](#3-present)
+    * [2\. Screensavers](#2-screensavers)
+      * [1\. Study](#1-study-1)
+        * [Overview](#overview)
+        * [Code writing](#code-writing)
+        * [Rain](#rain)
+        * [Frequency bar](#frequency-bar)
+      * [2\. Apply](#2-apply-1)
+      * [3\. Present](#3-present-1)
+    * [3\. Program structure](#3-program-structure)
+      * [1\. Study](#1-study-2)
+        * [Overall program structure](#overall-program-structure)
+        * [Global variables](#global-variables)
+        * [Function and class declarations](#function-and-class-declarations)
+        * [Event handler registrants](#event-handler-registrants)
+        * [Main program (forever loop)](#main-program-forever-loop)
+        * [Proper indentation](#proper-indentation)
+      * [2\. Apply](#2-apply-2)
+      * [3\. Present](#3-present-2)
+    * [4\. Divide &amp; conquer: program decomposition](#4-divide--conquer-program-decomposition)
+      * [1\. Study](#1-study-3)
+        * [Two modes: working &amp; asleep](#two-modes-working--asleep)
+        * [Sub\-programs](#sub-programs)
+        * [Matching gestures and screensavers](#matching-gestures-and-screensavers)
+      * [2\. Apply](#2-apply-3)
+      * [3\. Present](#3-present-3)
 
 ## Learning Progression 003: Screensavers (Part 1)
 [[toc](#table-of-contents)]
