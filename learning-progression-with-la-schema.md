@@ -353,8 +353,8 @@ Here is a longer [video of the frequency bar simulation screensaver](https://msu
    3. Now think how you can have some of the go faster than others, and match that with the brightness. _You don't have to get this right in this step, but it will help to think about it and generate some ideas._
    
 3. `[<lernact-prac>]`Write a standalone program to simulate a frequency bar for one of the screensavers. Guidelines and hints:
-   1. First, write a program that can plot LED columns _from botton to top_ and back.  
-   2. Randomize the height the way you randomized the line length in the code-writing simulation, and make the highest point show at highest brightness.  
+   1. First, write a program that can plot LED columns _from botton to top_ and back. _Note the vertical coordinate grows from top to bottom, so you will need to invert it._    
+   2. Randomize the height the way you randomized the line length in the code-writing simulation, and make the highest point show at highest brightness. _Can you see another application of an array of highest point vertial coordinates?_    
    3. How would you make the column retreat down while the highest point stays until the columns is gone, and only then turns off?  
 
 #### 3. Present
