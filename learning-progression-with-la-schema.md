@@ -396,29 +396,113 @@ In the [Lab Notebook](README.md):
 
 ##### Proper indentation
 
+```javascript
+// Example 3.1.5
+
+/* *** Global variables *** */
+let balls : game.LedSprite[] = []
+
+/* *** Function declarations *** */
+function createBalls() {
+    for (let i = 0; i < 3; i ++) {
+        let ball = game.createSprite(Math.randomRange(0, 4),
+                                     Math.randomRange(0, 4))
+        if (Math.randomBoolean()) {
+            if (Math.randomBoolean()) {
+                ball.turnLeft(45)
+            } else {
+                ball.turnRight(45)
+            }
+        }
+        balls.push(ball)
+    }
+    return balls
+}
+
+function bounceSpites() {
+    if (balls.length > 0) {
+        for (let i = 0; i < 20; i ++) {
+            for (let b = 0; b < balls.length; b ++) {
+                balls[b].move(1)
+                basic.pause(50)
+                balls[b].ifOnEdgeBounce()
+            }
+        }
+        for (let b = 0; b < balls.length; b ++)
+            balls[b].delete()
+    }    
+}
+
+/* *** Event-handler registrants *** */
+input.onGesture(Gesture.Shake, function () {
+    balls = createBalls()
+})
+
+/* *** Main program (forever loop) *** */
+basic.forever(function () {
+    bounceSpites()
+})
+```
+
 #### 2. Apply
 [[toc](#table-of-contents)]
+
+1. `[<lernact-prac>]`Rewrite your program from 2.2.1 to follow the structure presented in this step. Requirements:
+   1. The code for the coding simulation should be encapsulated in a funciton, called `coding`.  
+   2. The `basic.forever` loop should only call `coding()` and nothing else.  
+   
+2. `[<lernact-prac>]`Rewrite your program from 2.2.2 to follow the structure presented in this step. Requirements:
+   1. The functionality for a raindrop should be encapsulated in a class, called `Raindrop`. You may or may not subclass from `game.LedSprite`, as you wish. Refer to LP002-[9-11] for an example.  
+   2. The actual rain should be encapsulated in a function, called `rain`.  
+   3. The `basic.forever` loop should only call `rain()` and nothing else.  
+   
+3. `[<lernact-prac>]`Rewrite your program from 2.2.3 to follow the structure presented in this step. Requirements:  
+   1. The code for the coding simulation should be encapsulated in a funciton, called `freqBars`.  
+   2. The `basic.forever` loop should only call `freqBars()` and nothing else.  
+
+
 #### 3. Present
 [[toc](#table-of-contents)]
    
+In the [programs](programs) directory:
+1. Add your program from 3.2.1 with filename `microbit-program-2-2-1.js`.  
+2. Add your program from 3.2.2 with filename `microbit-program-2-2-2.js`.  
+3. Add your program from 3.2.3 with filename `microbit-program-2-2-3.js`.  
+
+In the [Lab Notebook](README.md):
+1. Link to the program from 3.2.1.  
+2. Link to a demo video showing the execution of the program from 3.2.1.  
+3. Link to the program from 3.2.2.  
+4. Link to a demo video showing the execution of the program from 3.2.2.  
+5. Link to the program from 3.2.3.  
+6. Link to a demo video showing the execution of the program from 3.2.3.  
+
+
 ### 4. Divide & conquer: program decomposition  
 [[toc](#table-of-contents)]
 
 #### 1. Study
 [[toc](#table-of-contents)]
 
+##### Two modes: working & asleep
    - high-level program structure:
      - only 1 `basic.forever`  
      - 2 "modes": working and asleep (`enum`)  
      - code writing simulation in working mode  
      - a number of gestures for the same number of screensaver programs in asleep mode  
-   - analysis and decomposition of target programs
+
+##### Sub-programs
+  - analysis and decomposition of target programs
      - each screensaver and code writing simulation is a separate function  
      - all functions w/o arguments and `void`  
-     - using arrays to match gestures and ss functions  
+
+##### Matching gestures and screensavers
+  - using arrays to match gestures and ss functions  
 
 #### 2. Apply
 [[toc](#table-of-contents)]
+
+
 #### 3. Present
 [[toc](#table-of-contents)]
    
