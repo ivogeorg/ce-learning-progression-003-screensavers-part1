@@ -581,19 +581,49 @@ In the [Lab Notebook](README.md):
 [[toc](#table-of-contents)]
 
 ##### Two modes: working & asleep
-   - high-level program structure:
-     - only 1 `basic.forever`  
-     - 2 "modes": working and asleep (`enum`)  
-     - code writing simulation in working mode  
-     - a number of gestures for the same number of screensaver programs in asleep mode  
+
+`[<lernact-rd>]`It is good to create a development plan for a program that is expected to be large. The most powerful technique is `[<cept>]`_decomposition_, the breaking up of a large task into smaller pieces, each one of them as independent from the others as possible. In a previous Step, we saw some sub-programs of the large target program, namely the `coding()`, `rain()`, and `freqBars()` functions, each encapsulating an independent simulation. So, we have actually already made steps toward decomposing the large program, specifically by taking a `[<cept>]`_bottom-up_ approach, in which we first build the small consituent pieces, which we will put together later. 
+
+From the opposite direction, in what we can call `[<cept>]`_top-down_ approach, the high-level structure of the program is that it has _two mutually exclusive modes_, "working" and "asleep", which have no program behavior in common. Such a case is ideal for a small `enum` class, which creates a type of _named_ elements, as in the following example:
+```javascript
+// Example 4.1.1
+
+enum Mode { Asleep = 0, Working }
+
+let mode : Mode = Mode.Asleep
+```
+This is helpful because it maintains maximum _"self-describability"_ of the program. We don't need excessive comments, if the program itself reads like a narrative.
+
+In mode `Working`, we call the `coding()` sub-program, while in mode `Asleep`, we call whichever sub-program corresponds to the last gesture detected (or the default). We can accomplish this easily within a single `basic.forever() {}` loop, which is ideal for our overall program structure.
 
 ##### Sub-programs
-  - analysis and decomposition of target programs
-     - each screensaver and code writing simulation is a separate function  
-     - all functions w/o arguments and `void`  
+
+The most important aspects of the sub-programs `coding()`, `rain()`, and `freqBars()` is that they are _independent of each other_ and are _similarly encapsulated_. Towards the first aspect, only one of these programs is running at a time, and no other program is running _in the background_ to compete for computing resources or perturb the timing of the program currently executing. Toward the second aspect, all of these sub-programs are encapsulated as functions with the same signature, namely no parameters and no return type, as in `function foo() : void {}`. This makes them easy to call from the same place, in our case the `basic.forever()` loop.
+
+We have only looked at 2 screensavers (meaning the programs running in `Asleep` mode) so far, but now that we have a solid program structure, both bottom-up and top-down, we can easily go about developing and adding other screensavers. Just wrap them into a `void` function with no parameters, whether the internal implementation is a function or a class, and add it to the options for the `Asleep` mode. We see two important properties of well-structured programs: `[<cept>]`_implementation hiding_, which dictates that the implementation details for a certain independent program component need not be visible (in other words, at the top level of the program, we don't care about how a particular screensaver sub-programs is implemented), and `[<cept>]`_extensibility_, which allows for seamless extension of the functionality of the large program by just adding more options, without changing the overall design and structure.
 
 ##### Matching gestures and screensavers
-  - using arrays to match gestures and ss functions  
+
+Here, we will also see how the encapsulation, implementation hiding, and extensibility of our structured program design will help us with keeping the main program simple. In particular, how do we match gestures and screensaver programs? Do we use `if...else` cascades, a `switch` statement, or some other construct. Actually, we will use the marvelous property of JavaScript (and, hence TypeScript) that it has `[<cept>]`_first-class functions_. Let's look at an example:
+```javascript
+// Example 4.1.2
+
+let gesture : Gesture = Gesture.TiltLeft
+let gestures : Gesture[] = [Gesture.TiltLeft, Gesture.TiltRight]
+
+let screensavers = [rain, freqBars]
+```
+Notice how we have created to parallel arrays, one with gestures, one with screensavers. Notice also that, if we want to add more screensavers and matching gestures, we can just add to these global arrays. How exactly we do the matching is shown in the next example:
+```javascript
+// Example 4.1.3
+
+basic.forever(function () {
+    screensavers[gestures.indexOf(gesture)]()
+})
+```
+Let's unpack this:
+1. We can call a function, which is an array element, by combinging the element selection syntax for arrays and the function call syntax, as in `screensavers[0]()`, where `screensavers[0]` is just the function `rain`, and the parentheses `()` at the end end off a proper function call.  
+2. Assuming that we have constructed the parallel arrays so that the gestures and screensavers match _by index_, we can use the `indexOf` method to get the index of the last gesture stored in the variable `gesture` in the `gestures` array and then apply this index in the selector for the corresponding screensaver, as we san in (1).  
 
 #### 2. Apply
 [[toc](#table-of-contents)]
