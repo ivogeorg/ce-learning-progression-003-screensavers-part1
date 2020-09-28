@@ -394,10 +394,9 @@ In the [Lab Notebook](README.md):
 [[toc](#table-of-contents)]
 
 ##### Overall program structure
-   - global vars  
-   - function and class declarations  
-   - event-handler registrants  
-   - main program (forever loop)  
+
+`[<lernact-rd>]`In a large program, proper structure is essential. While the particular structure is somewhat arbitrary, general guidelines and conventions are quick to appear in any programming domain. One important factor in coming up with a good structure for a large program is whether the program can contain multiple files or just a single one. The MakeCode micro:bit environment allows for only one user-defined source file at a time, with all the rest of the functionality (language runtime, device runtime, MakeCode and user-defined packages) all come precompiled and are not modifiable from inside the user program. For our single-file micro:bit programs, the following structure has emerged:
+
 ```
  _____ _       _           _                   _       _     _            
 |  __ \ |     | |         | |                 (_)     | |   | |           
@@ -445,19 +444,56 @@ In the [Lab Notebook](README.md):
                         |_|              |___/                                                                         |_|      
 ```
 ASCII art acknowledgement: [taag](http://patorjk.com/software/taag/#p=display&f=Big&t=Type%20something)
-   
+
+In the rest of the sections, we'll briefly explain each of these program regions. All examples are assembled in the program in Example 3.1.1 at the end of the Study section.
+
 ##### Global variables
+
+Global variables are variables that are in the top-level scope of the program, and are thus visible to all the program's components, including functions and classes. They are the main _program data_ (aka `[<cept>]`_program state_). In general, there should be a minimal number of global variables, thought the single-file environment mitigates most of the risks. Nevertheless, it makes good sense to put the at the very top of the program. This makes them easy to find, helps avoid duplication, and gives a brief overview of the program to a new reader. In Example 3.1.1, our global variable, against which all program operations are performed, is the `balls` array.
 
 ##### Function and class declarations
 
+Functions and classes are _named_ encapsulation structures, which help modularize the program code and prevent duplication of code. Functions have input and output, and can have local data needed for their operation. Functions are `[<cept>]`_called_ by invoking their name and specifying the necessary arguments, if any, between parentheses. While not all functions have `[<cept>]`_parameters_ (meaning the declarations of the `[<cept>]`_arguments_), a function call **requires** the parentheses `()`. In Example 3.1.1, we have two functions, `createBalls()` and `bounceBalls()`. Note that they have distinct functionality, properly communicated by their names.
+
+Classes are the backbone of the object-oriented programming paradigm, allowing programmers to define their own types, known as `[<cept>]`_user-defined types_, by encapsulating complex data and determiniting the exact set of computational operations that can be performed on them. Classes are thus the templates for the creation of user-type entities, called `[<cept>]`_objects_.
+
+Keeping functions and classes clustered together follows the `[<cept>]`_library_ (aka `[<cept>]`_application programming interface (API)_) paradigm, in which all the functions and user data types available to the programmer are presented in an exhaustive and descriptive list.
+
 ##### Event handler registrants
+
+Events are phenomena, internal or external to the computer's processor, that the processor has to be informed of. There are two ways to communicate events to the processor: `[<cept>]`_interrupts_, which are signals sent by the event originator to the processor and which the processor inteprets and acts on, and `[<cept>]`_polling_, which is a process of cyclic interrogation of the possible originators by the processor. The micro:bit actually uses a hybrid method, where on the hardware level interrupts are used, but the device and language runtimes actually implement polling. The MakeCode packages which are involved in, among other thigns, various event detection and response are `input`, `pins`, `radio`, `conrol`, and `serial`. The way the processor and/or runtime responds to an event is by assigning an `[<cept>]`_event-handler_ function to each event. In MakeCode, this is done by event-handler `[<cept>]`_registrants_, which are themselves functions, which take the event-handler functions as one of their arguments. In Example 3.1.1, we have a `Gesture` event-handler registrant, called `input.onGesture`. It takes two arguments: the name of the gesture, in this case `Shake`, and the event-handler to be executed upon detection of the shake-gesture event, namely `function () { balls = createBalls(); }`.
+
+Due to the way they are executed, event handlers should not be put inside loops, functions, or classes, but at the top level of the program, and clustered together so that it is easy to see at a glance what events the program is listening to. More on this in a later step.
 
 ##### Main program (forever loop)
 
+The main program contains the main program loop, in the case of MakeCode micro:bit, most often a `basic. forever()` loop function. It is best to keep the contents of the loop short and descriptive, usually by encapsulating the details away into functions and classes. In Example 3.1.1, the only function that the main program loop is calling is `bounceBalls()`, and nothing else, making the intent of the program exceedingly obvious and setting firm expectations of the program behavior that may be observed.
+
 ##### Proper indentation
 
+Lastly, proper program structure can be easily defeated if the proper language-specific indentation style is not adopted. In general, the rules are as follows:
+1. Top-level constructs (e.g. declarations) start at column 0 (that is, flush against the left-hand edge of the editor).  
+2. Each encapsulation (aka scope) nesting (e.g. function block/body, conditional statement block/body, and the full contents of a class) are started **4 characters in**.  
+3. Whether the opening brace `{` of a block is at the end of the preceding line, like
 ```javascript
-// Example 3.1.5
+function foo() {
+    // function body
+}
+```
+or at the start of the new line, 
+```javascript
+function foo() 
+{
+    // function body
+}
+```
+
+is a matter of personal style, but it should be _consistent_.
+
+Notice how the proper indentation and consistent style in Example 3.1.1 makes the program easy to read and comprehend at a glance.
+
+```javascript
+// Example 3.1.1
 
 /* *** Global variables *** */
 let balls : game.LedSprite[] = []
@@ -479,7 +515,7 @@ function createBalls() {
     return balls
 }
 
-function bounceSpites() {
+function bounceBalls() {
     if (balls.length > 0) {
         for (let i = 0; i < 20; i ++) {
             for (let b = 0; b < balls.length; b ++) {
@@ -500,7 +536,7 @@ input.onGesture(Gesture.Shake, function () {
 
 /* *** Main program (forever loop) *** */
 basic.forever(function () {
-    bounceSpites()
+    bounceBalls()
 })
 ```
 
